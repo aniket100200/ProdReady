@@ -3,6 +3,7 @@ package ProdReady.Aniket.Service.Impl;
 import ProdReady.Aniket.Employee;
 import ProdReady.Aniket.Repository.EmployeeRepository;
 import ProdReady.Aniket.Service.EmployeeService;
+import jakarta.transaction.Transactional;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -19,6 +20,23 @@ public class EmployeeServiceImpl implements EmployeeService {
   @Autowired
   public EmployeeServiceImpl(EmployeeRepository repository) {
     this.repository = repository;
+  }
+
+  @Override
+  @Transactional
+  public String addEmployee(Employee employee) {
+    Employee saveEmployee =
+        Employee.builder()
+            .name(employee.getName())
+            .department(employee.getDepartment())
+            .hireDate(employee.getHireDate())
+            .salary(employee.getSalary())
+            .build();
+
+    repository.save(saveEmployee);
+    // will revert back if anything goes wrong
+
+    return "Employee Added Successfully";
   }
 
   @Override

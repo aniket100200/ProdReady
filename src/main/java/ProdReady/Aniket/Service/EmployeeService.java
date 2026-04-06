@@ -4,7 +4,10 @@ import ProdReady.Aniket.Employee;
 import java.util.List;
 
 public interface EmployeeService {
-    List<Employee>findByName(String name);
 
-    List<Employee> getAll();
+  String addEmployee(Employee employee);
+
+  List<Employee> findByName(String name);
+
+  List<Employee> getAll();
 }
