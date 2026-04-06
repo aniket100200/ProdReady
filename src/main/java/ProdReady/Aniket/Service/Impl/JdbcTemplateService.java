@@ -9,10 +9,10 @@ import org.springframework.stereotype.Service;
 @Service
 public class JdbcTemplateService {
 
-    /*
-        - JPA → Faster development, less SQL
-        - JDBC → More control, more flexibility
-     */
+  /*
+     - JPA → Faster development, less SQL
+     - JDBC → More control, more flexibility
+  */
   @Autowired JdbcTemplate jdbcTemplate;
 
   /*
