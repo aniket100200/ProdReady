@@ -1,0 +1,16 @@
+package ProdReady.Aniket;
+
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
+@Builder
+public class User {
+  String name;
+  int age;
+  String role;
+}
