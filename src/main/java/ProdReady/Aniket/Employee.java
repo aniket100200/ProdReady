@@ -20,11 +20,12 @@ public class Employee {
   @GeneratedValue(strategy = GenerationType.IDENTITY)
   int id;
 
-  @NotNull
+  @NotNull(message = "Name should not be null")
   String name;
+
   String department;
-  
-  @Min(20000)
+
+  @Min(value = 20000, message = "Salary Must be greater than 20000")
   Long salary;
 
   @Column(name = "hire_date")
