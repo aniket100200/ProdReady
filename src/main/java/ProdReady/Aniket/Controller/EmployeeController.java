@@ -2,6 +2,7 @@ package ProdReady.Aniket.Controller;
 
 import ProdReady.Aniket.Employee;
 import ProdReady.Aniket.Service.EmployeeService;
+import ProdReady.Aniket.models.Users;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
@@ -31,9 +32,16 @@ public class EmployeeController {
 
   @PostMapping("/add")
   public ResponseEntity addEmployee(@RequestBody Employee employee) {
-      
-      String resp=employeeService.addEmployee(employee);
 
-      return ResponseEntity.ok(resp);
+    String resp = employeeService.addEmployee(employee);
+
+    return ResponseEntity.ok(resp);
+  }
+
+  @GetMapping(
+      value = "/users",
+      produces = {MediaType.APPLICATION_JSON_VALUE})
+  public ResponseEntity<List<Users>> getUserList() {
+    return ResponseEntity.ok(employeeService.getUsers());
   }
 }

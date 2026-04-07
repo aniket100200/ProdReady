@@ -2,7 +2,9 @@ package ProdReady.Aniket.Service.Impl;
 
 import ProdReady.Aniket.Employee;
 import ProdReady.Aniket.Repository.EmployeeRepository;
+import ProdReady.Aniket.Repository.UserRepository;
 import ProdReady.Aniket.Service.EmployeeService;
+import ProdReady.Aniket.models.Users;
 import jakarta.transaction.Transactional;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,6 +18,8 @@ public class EmployeeServiceImpl implements EmployeeService {
   private final EmployeeRepository repository;
 
   @Autowired JdbcTemplateService jdbcTemplateService;
+
+  @Autowired UserRepository userRepository;
 
   @Autowired
   public EmployeeServiceImpl(EmployeeRepository repository) {
@@ -37,6 +41,12 @@ public class EmployeeServiceImpl implements EmployeeService {
     // will revert back if anything goes wrong
 
     return "Employee Added Successfully";
+  }
+
+  @Override
+  public List<Users> getUsers() {
+
+    return userRepository.findAll();
   }
 
   @Override
