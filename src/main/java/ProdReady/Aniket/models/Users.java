@@ -1,5 +1,6 @@
 package ProdReady.Aniket.models;
 
+import ProdReady.Aniket.CustomAnnotations.ValidUsername;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.Email;
 import lombok.AccessLevel;
@@ -20,6 +21,7 @@ public class Users {
   int id;
 
   @Column(unique = true, nullable = false)
+  @ValidUsername
   String username;
 
   @Email String email;
