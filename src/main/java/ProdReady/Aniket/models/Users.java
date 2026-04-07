@@ -1,6 +1,7 @@
 package ProdReady.Aniket.models;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.Email;
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -21,5 +22,5 @@ public class Users {
   @Column(unique = true, nullable = false)
   String username;
 
-  String email;
+  @Email String email;
 }

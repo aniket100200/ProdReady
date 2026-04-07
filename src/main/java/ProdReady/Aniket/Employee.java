@@ -1,7 +1,8 @@
 package ProdReady.Aniket;
 
-import jakarta.annotation.Nullable;
 import jakarta.persistence.*;
+import jakarta.validation.constraints.Min;
+import jakarta.validation.constraints.NotNull;
 import java.sql.Date;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -19,10 +20,12 @@ public class Employee {
   @GeneratedValue(strategy = GenerationType.IDENTITY)
   int id;
 
+  @NotNull
   String name;
   String department;
-
-  @Nullable Long salary;
+  
+  @Min(20000)
+  Long salary;
 
   @Column(name = "hire_date")
   Date hireDate;
