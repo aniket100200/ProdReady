@@ -3,6 +3,7 @@ package ProdReady.Aniket.Controller;
 import ProdReady.Aniket.Service.jwt.JwtService;
 import ProdReady.Aniket.dtos.reqDtos.AuthRequestDto;
 import ProdReady.Aniket.dtos.respDtos.AuthResponseDto;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -13,6 +14,7 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/auth")
+@Slf4j
 public class AuthController {
 
   JwtService jwtService;
@@ -55,6 +57,8 @@ public class AuthController {
 
   @GetMapping("/getName")
   public String getName() {
+    log.error("Fetching Data");
+
     return "GET Name";
   }
 }
