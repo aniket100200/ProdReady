@@ -43,11 +43,14 @@
 
 Some frequently used endpoints include:
 
+```
 🔹/actuator/health → Shows application health status
 🔹/actuator/info → Application information
 🔹/actuator/metrics → Performance and system metrics
 🔹/actuator/env → Environment properties
 🔹/actuator/beans → All Spring beans
+🔹/actuator/mappings: Shows all request mappings
+```
 
 ➡️ Sample Endpoint and Response (see attached image 👇)
 

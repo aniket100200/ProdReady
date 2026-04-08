@@ -3,6 +3,7 @@ package ProdReady.Aniket.Controller;
 import ProdReady.Aniket.Service.jwt.JwtService;
 import ProdReady.Aniket.dtos.reqDtos.AuthRequestDto;
 import ProdReady.Aniket.dtos.respDtos.AuthResponseDto;
+import ProdReady.Aniket.study.actuator_and_Monitoring.VistCounter;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -19,6 +20,8 @@ public class AuthController {
 
   JwtService jwtService;
   AuthenticationManager authenticationManager;
+
+  VistCounter counter;
 
   @Autowired
   public void setJwtService(JwtService jwtService) {
@@ -58,7 +61,12 @@ public class AuthController {
   @GetMapping("/getName")
   public String getName() {
     log.error("Fetching Data");
-
+    counter.increment();
     return "GET Name";
+  }
+
+  @Autowired
+  public void setCounter(VistCounter counter) {
+    this.counter = counter;
   }
 }
