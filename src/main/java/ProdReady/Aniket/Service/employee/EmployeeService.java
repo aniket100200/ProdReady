@@ -1,4 +1,4 @@
-package ProdReady.Aniket.Service;
+package ProdReady.Aniket.Service.employee;
 
 import ProdReady.Aniket.Employee;
 import ProdReady.Aniket.models.Users;

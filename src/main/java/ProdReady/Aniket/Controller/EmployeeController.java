@@ -1,7 +1,7 @@
 package ProdReady.Aniket.Controller;
 
 import ProdReady.Aniket.Employee;
-import ProdReady.Aniket.Service.EmployeeService;
+import ProdReady.Aniket.Service.employee.EmployeeService;
 import ProdReady.Aniket.models.Users;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -43,5 +43,10 @@ public class EmployeeController {
       produces = {MediaType.APPLICATION_JSON_VALUE})
   public ResponseEntity<List<Users>> getUserList() {
     return ResponseEntity.ok(employeeService.getUsers());
+  }
+
+  @GetMapping("/hello")
+  public String getResponse() {
+    return "Hello";
   }
 }

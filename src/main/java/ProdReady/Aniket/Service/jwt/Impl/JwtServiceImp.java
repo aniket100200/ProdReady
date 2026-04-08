@@ -1,6 +1,6 @@
-package ProdReady.Aniket.Service.Impl;
+package ProdReady.Aniket.Service.jwt.Impl;
 
-import ProdReady.Aniket.Service.JwtService;
+import ProdReady.Aniket.Service.jwt.JwtService;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
 import io.jsonwebtoken.security.Keys;
@@ -25,7 +25,7 @@ public class JwtServiceImp implements JwtService {
     return Jwts.parserBuilder()
         .setSigningKey(Keys.hmacShaKeyFor(SECRET_KEY.getBytes()))
         .build()
-        .parseClaimsJwt(token)
+        .parseClaimsJws(token)
         .getBody()
         .getSubject();
   }

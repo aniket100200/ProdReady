@@ -1,6 +1,6 @@
 package ProdReady.Aniket.config.jwt;
 
-import ProdReady.Aniket.Service.JwtService;
+import ProdReady.Aniket.Service.jwt.JwtService;
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
@@ -30,7 +30,7 @@ public class JwtAuthenticationFilterImpl extends JwtAuthenticationFilter {
       throws ServletException, IOException {
 
     String authHeader = request.getHeader("Authorization");
-    if (authHeader == null || !authHeader.startsWith("Bearer")) {
+    if (authHeader == null || !authHeader.startsWith("Bearer ")) {
       filterChain.doFilter(request, response);
       return;
     }
