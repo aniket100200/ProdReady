@@ -22,6 +22,8 @@ public class SecurityConfig {
                     .permitAll()
                     .requestMatchers("/admin/**")
                     .hasRole("ADMIN")
+                    .requestMatchers("/actuator/**")
+                    .permitAll()
                     .requestMatchers("/employee/**")
                     .permitAll()
                     .requestMatchers("/auth/**")

@@ -1,10 +1,10 @@
-Writing logs is important...
+### Writing logs is important...
 
 But,
 
 Controlling how much stuff to be logged is even more important❗
 
-Spring Boot makes log configuration simple using:
+- Spring Boot makes log configuration simple using:
 
 ```
 🔹application.properties
@@ -16,19 +16,19 @@ Spring Boot makes log configuration simple using:
 
 ➡️ Example:
 
-Defining log levels in application.properties (see attached image 👇)
+- Defining log levels in application.properties (see attached image 👇)
 
 ➡️ What Does This Mean?
 
 `🔹logging.level.root=INFO`
 
-Sets the default log level for the whole application.
+- Sets the default log level for the whole application.
 
-Only INFO, WARN, and ERROR logs will appear.
+- Only INFO, WARN, and ERROR logs will appear.
 
 `🔹logging.level.com.example.demo=DEBUG`
 
-Overrides logging level for a specific package.
+- Overrides logging level for a specific package.
 
 For that package:
 
@@ -37,7 +37,7 @@ For that package:
 
 `🔹logging.file.name=app.log`
 
-Saves logs to a file instead of just printing to console.
+- Saves logs to a file instead of just printing to console.
 
 Now your logs are persisted 📂
 
