@@ -57,6 +57,11 @@ public class EmployeeServiceImpl implements EmployeeService {
   @Override
   @Cacheable(value = CACHE_NAME, key = "#id")
   public Employee findById(int id) {
+    try {
+      Thread.sleep(100);
+    } catch (Exception t) {
+
+    }
     Optional<Employee> optional = repository.findById(id);
     if (optional.isEmpty())
       throw new EmployeeNotFoundException("Unable Find the Employee with Id " + id);

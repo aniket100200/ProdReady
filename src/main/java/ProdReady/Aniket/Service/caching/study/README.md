@@ -45,4 +45,38 @@ public class AniketApplication {
 </dependency>
 ```
 
+---
+
+### Configuration class
+
+- In this class you can set your rules.
+- `TTL`  time to leave and all.
+- It Serialize to the Json object.
+
+```java
+import java.time.Duration;
+
+import org.springframework.cache.annotation.EnableCaching;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.data.redis.cache.RedisCacheConfiguration;
+import org.springframework.data.redis.serializer.RedisSerializationContext.SerializationPair;
+import org.springframework.data.redis.serializer.RedisSerializer;
+
+@Configuration
+@EnableCaching
+public class RedisConfig {
+
+    @Bean
+    public RedisCacheConfiguration cacheConfiguration() {
+        return RedisCacheConfiguration.defaultCacheConfig()
+                .entryTtl(Duration.ofMinutes(10))
+                // Use the built-in json() shortcut!
+                .serializeValuesWith(SerializationPair.fromSerializer(RedisSerializer.json()));
+    }
+}
+
+```
+
+
 
