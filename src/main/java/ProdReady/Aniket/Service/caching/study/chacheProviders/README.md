@@ -80,7 +80,31 @@ spring.cache.jcache.config=classpath:ehcache.xml
 
 ```properties
 spring.cache.type=caffeine
+# Configure the cache rules (Max 1000 items, expire 10 minutes after writing)
+spring.cache.cache-names=employees
 spring.cache.caffeine.spec=maximumSize=1000,expireAfterAccess=5m
+```
+
+### Provide Custom CacheManager Bean
+
+```java
+
+public class CacheConfig {
+
+    @Bean
+    public CacheManager cacheManager() {
+        CaffeineCacheManager cacheManager = new CaffeineCacheManager("employees", "departments");
+
+        // Set the default behavior for these caches
+        cacheManager.setCaffeine(Caffeine.newBuilder()
+                .initialCapacity(100)
+                .maximumSize(1000)
+                .expireAfterWrite(10, TimeUnit.MINUTES)
+                .recordStats()); // Lets you see cache hit/miss metrics if you use Spring Actuator
+
+        return cacheManager;
+    }
+}
 ```
 
 ---
