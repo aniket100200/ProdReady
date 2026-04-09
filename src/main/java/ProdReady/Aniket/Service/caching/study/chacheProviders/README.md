@@ -30,6 +30,25 @@ __________________________________________________________________________
     <groupId>org.ehcache</groupId>
     <artifactId>ehcache</artifactId>
 </dependency>
+
+<dependency>
+<groupId>org.ehcache</groupId>
+<artifactId>ehcache</artifactId>
+</dependency>
+
+
+<dependency>
+<groupId>javax.xml.bind</groupId>
+<artifactId>jaxb-api</artifactId>
+<version>2.3.1</version>
+</dependency>
+
+<dependency>
+<groupId>org.glassfish.jaxb</groupId>
+<artifactId>jaxb-runtime</artifactId>
+<version>2.3.1</version>
+</dependency>
+
 ```
 
 #### ehcache.xml
