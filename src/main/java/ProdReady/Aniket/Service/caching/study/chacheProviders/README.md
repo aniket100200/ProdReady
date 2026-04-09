@@ -80,6 +80,7 @@ spring.cache.jcache.config=classpath:ehcache.xml
 
 ```properties
 spring.cache.type=caffeine
+spring.cache.cache-names=employees
 spring.cache.caffeine.spec=maximumSize=1000,expireAfterAccess=5m
 ```
 

@@ -57,6 +57,11 @@ public class EmployeeServiceImpl implements EmployeeService {
   @Override
   @Cacheable(value = CACHE_NAME, key = "#id")
   public Employee findById(int id) {
+    try {
+      Thread.sleep(1000);
+    } catch (Exception t) {
+
+    }
     Optional<Employee> optional = repository.findById(id);
     if (optional.isEmpty())
       throw new EmployeeNotFoundException("Unable Find the Employee with Id " + id);
@@ -86,6 +91,7 @@ public class EmployeeServiceImpl implements EmployeeService {
   @Override
   @CacheEvict(value = CACHE_NAME, key = "#id")
   public DefaultResponse deleteById(int id) {
+
     Optional<Employee> optional = repository.findById(id);
     if (optional.isEmpty()) throw new EmployeeNotFoundException("Employee With Given Id Not Found");
     repository.deleteById(id);
