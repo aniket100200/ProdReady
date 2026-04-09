@@ -24,4 +24,9 @@ public class GlobalExceptionHandler {
   public ResponseEntity handConstraintViolationException(ConstraintViolationException exception) {
     return new ResponseEntity(exception.getMessage(), HttpStatus.BAD_REQUEST);
   }
+
+  @ExceptionHandler(EmployeeNotFoundException.class)
+  public ResponseEntity handleEmplyeeNotFoundException(EmployeeNotFoundException exception) {
+    return new ResponseEntity(exception.getMessage(), HttpStatus.NOT_FOUND);
+  }
 }
