@@ -36,7 +36,7 @@
 #### application-jms.properties
 
 ```properties
-spring-artemis-broker-url=tcp://localhost:61616
-spring-artemis-username=admin
-spring-artemis-password=admin
+spring.artemis.broker-url=tcp://localhost:61616
+spring.artemis.user=admin
+spring.artemis.password=admin
 ```
