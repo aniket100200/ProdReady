@@ -3,19 +3,17 @@ package ProdReady.Aniket.models;
 import ProdReady.Aniket.CustomAnnotations.ValidUsername;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.Email;
-import lombok.AccessLevel;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 import lombok.experimental.FieldDefaults;
 
 @AllArgsConstructor
 @NoArgsConstructor
 @Data
 @Entity
-@Table
+@Table(name = "t_users")
 @FieldDefaults(level = AccessLevel.PRIVATE)
-public class Users {
+@Builder
+public class User {
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
   int id;
@@ -25,4 +23,6 @@ public class Users {
   String username;
 
   @Email String email;
+
+  Integer age;
 }

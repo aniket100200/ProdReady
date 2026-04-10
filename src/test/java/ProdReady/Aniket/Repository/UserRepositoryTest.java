@@ -2,7 +2,7 @@ package ProdReady.Aniket.Repository;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-import ProdReady.Aniket.models.Users;
+import ProdReady.Aniket.models.User;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.data.jpa.test.autoconfigure.DataJpaTest;
@@ -13,11 +13,11 @@ class UserRepositoryTest {
 
   @Test
   void testSaveUser() {
-    Users user = new Users();
+    User user = new User();
     user.setEmail("aniketkhangar459@gmail.com");
     user.setUsername("khangar_aniket");
 
-    Users saved = userRepository.save(user);
+    User saved = userRepository.save(user);
 
     assertNotNull(saved);
   }

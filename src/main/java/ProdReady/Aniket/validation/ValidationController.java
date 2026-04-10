@@ -1,6 +1,6 @@
 package ProdReady.Aniket.validation;
 
-import ProdReady.Aniket.models.Users;
+import ProdReady.Aniket.models.User;
 import jakarta.validation.Valid;
 import jakarta.validation.constraints.Min;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,7 +15,7 @@ public class ValidationController {
   @Autowired ValidationService service;
 
   @PostMapping("/add")
-  public ResponseEntity addUser(@Valid @RequestBody Users user, @RequestParam("amt") int amount) {
+  public ResponseEntity addUser(@Valid @RequestBody User user, @RequestParam("amt") int amount) {
     service.process(amount);
 
     return ResponseEntity.ok("Is a valid User");

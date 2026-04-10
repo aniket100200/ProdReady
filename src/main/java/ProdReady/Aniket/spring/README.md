@@ -33,3 +33,12 @@
 - Provides flexible scheduling using cron expressions (I'll explain it deeply in the next post)
 
 ---
+
+### application.properties
+
+```properties
+# Increases the scheduler thread pool from 1 to 5
+spring.task.scheduling.pool.size=5
+```
+
+---

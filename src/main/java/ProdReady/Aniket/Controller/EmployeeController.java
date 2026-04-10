@@ -5,7 +5,7 @@ import ProdReady.Aniket.Service.employee.EmployeeService;
 import ProdReady.Aniket.dtos.respDtos.DefaultResponse;
 import ProdReady.Aniket.dtos.respDtos.EmployeeResponse;
 import ProdReady.Aniket.exceptions.UserNotFoundException;
-import ProdReady.Aniket.models.Users;
+import ProdReady.Aniket.models.User;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -45,7 +45,7 @@ public class EmployeeController {
   @GetMapping(
       value = "/users",
       produces = {MediaType.APPLICATION_JSON_VALUE})
-  public ResponseEntity<List<Users>> getUserList() {
+  public ResponseEntity<List<User>> getUserList() {
     return ResponseEntity.ok(employeeService.getUsers());
   }
 

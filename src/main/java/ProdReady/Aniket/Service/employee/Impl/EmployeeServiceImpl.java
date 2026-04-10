@@ -8,7 +8,7 @@ import ProdReady.Aniket.Service.employee.EmployeeService;
 import ProdReady.Aniket.dtos.respDtos.DefaultResponse;
 import ProdReady.Aniket.dtos.respDtos.EmployeeResponse;
 import ProdReady.Aniket.exceptions.EmployeeNotFoundException;
-import ProdReady.Aniket.models.Users;
+import ProdReady.Aniket.models.User;
 import ProdReady.Aniket.transformers.EmployeeTransformer;
 import jakarta.transaction.Transactional;
 import java.util.List;
@@ -70,7 +70,7 @@ public class EmployeeServiceImpl implements EmployeeService {
   }
 
   @Override
-  public List<Users> getUsers() {
+  public List<User> getUsers() {
 
     return userRepository.findAll();
   }

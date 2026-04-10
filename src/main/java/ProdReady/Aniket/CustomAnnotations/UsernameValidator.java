@@ -7,6 +7,6 @@ public class UsernameValidator implements ConstraintValidator<ValidUsername, Str
 
   @Override
   public boolean isValid(String value, ConstraintValidatorContext constraintValidatorContext) {
-    return value != null && value.matches("^[a-zA-z0-9_]{5,20}$");
+    return value != null && value.matches("^(?=.{5,20}$)[a-zA-Z0-9]*_[a-zA-Z0-9]*$");
   }
 }

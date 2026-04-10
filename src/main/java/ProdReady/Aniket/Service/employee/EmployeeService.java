@@ -3,7 +3,7 @@ package ProdReady.Aniket.Service.employee;
 import ProdReady.Aniket.Employee;
 import ProdReady.Aniket.dtos.respDtos.DefaultResponse;
 import ProdReady.Aniket.dtos.respDtos.EmployeeResponse;
-import ProdReady.Aniket.models.Users;
+import ProdReady.Aniket.models.User;
 import java.util.List;
 
 public interface EmployeeService {
@@ -12,7 +12,7 @@ public interface EmployeeService {
 
   Employee findById(int id);
 
-  List<Users> getUsers();
+  List<User> getUsers();
 
   List<Employee> findByName(String name);
 
