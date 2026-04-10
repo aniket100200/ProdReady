@@ -39,3 +39,5 @@ public class MyApp {
 `@Async` won’t work if you call that method from the same class.
 
 👉 It must be called from another Spring class/bean (due to proxy mechanism)
+
+<img src="img.png" alt="Image"/>
