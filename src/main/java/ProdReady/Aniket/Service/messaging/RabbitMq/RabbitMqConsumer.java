@@ -6,7 +6,7 @@ import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Component;
 
 @Component
-@Profile("dev")
+@Profile("rabbit")
 public class RabbitMqConsumer implements MessageConsumer {
   @Override
   @RabbitListener(queues = "myQueue")
