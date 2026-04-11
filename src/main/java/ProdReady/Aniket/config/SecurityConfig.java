@@ -29,7 +29,10 @@ public class SecurityConfig {
                     .permitAll()
                     .requestMatchers("/login")
                     .permitAll()
-                    .requestMatchers("/", "/index.html", "/static/**", "/css/**", "/js/**")
+                    .requestMatchers(
+                        "/", "/index.html", "/static/**", "/css/**", "/js/**", "/templates/**")
+                    .permitAll()
+                    .requestMatchers("/home")
                     .permitAll()
                     .requestMatchers("/actuator/**")
                     .permitAll()
