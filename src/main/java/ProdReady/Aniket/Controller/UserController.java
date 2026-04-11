@@ -1,7 +1,6 @@
 package ProdReady.Aniket.Controller;
 
 import ProdReady.Aniket.Service.UserService.UserService;
-import ProdReady.Aniket.Service.messaging.MessageProducer;
 import ProdReady.Aniket.dtos.reqDtos.UserRequestDto;
 import ProdReady.Aniket.dtos.respDtos.UserResponseDto;
 import jakarta.validation.Valid;
@@ -30,13 +29,14 @@ public class UserController {
     return ResponseEntity.ok(userService.findByUsername(username));
   }
 
-  @Autowired MessageProducer messageProducer;
-
-  @PostMapping("/message")
-  public ResponseEntity<String> addMessageToBroker() {
-    for (int i = 0; i < 1000; i++) {
-      messageProducer.send("Hello: " + i);
-    }
-    return ResponseEntity.ok("Uploaded to the Queue Successfully");
-  }
+//  @Autowired MessageProducer messageProducer;
+//
+//  @PostMapping("/message")
+//  @Profile("kafka")
+//  public ResponseEntity<String> addMessageToBroker() {
+//    for (int i = 0; i < 1000; i++) {
+//      messageProducer.send("Hello: " + i);
+//    }
+//    return ResponseEntity.ok("Uploaded to the Queue Successfully");
+//  }
 }

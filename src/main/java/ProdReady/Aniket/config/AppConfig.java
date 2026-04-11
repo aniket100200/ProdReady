@@ -13,10 +13,10 @@ import org.springframework.security.provisioning.InMemoryUserDetailsManager;
 
 @Configuration
 public class AppConfig {
-  @Bean
-  public void userService() {
-    //    return new UserServiceImp(userRepository());
-  }
+//  @Bean
+//  public UserService userService() {
+//       return new UserServiceImp(userRepository());
+//  }
 
   public String userRepository() {
     return null;
