@@ -29,4 +29,9 @@ public class GlobalExceptionHandler {
   public ResponseEntity handleEmplyeeNotFoundException(EmployeeNotFoundException exception) {
     return new ResponseEntity(exception.getMessage(), HttpStatus.NOT_FOUND);
   }
+
+  @ExceptionHandler(FileNotFoundException.class)
+  public ResponseEntity<String> handleFileNotFoundException(FileNotFoundException exception) {
+    return new ResponseEntity<>(exception.getMessage(), HttpStatus.NOT_FOUND);
+  }
 }
