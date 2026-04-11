@@ -29,6 +29,8 @@ public class SecurityConfig {
                     .permitAll()
                     .requestMatchers("/login")
                     .permitAll()
+                    .requestMatchers("/", "/index.html", "/static/**", "/css/**", "/js/**")
+                    .permitAll()
                     .requestMatchers("/actuator/**")
                     .permitAll()
                     .requestMatchers("/employee/**")

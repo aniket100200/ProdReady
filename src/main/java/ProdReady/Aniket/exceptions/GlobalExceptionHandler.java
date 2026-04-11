@@ -34,4 +34,9 @@ public class GlobalExceptionHandler {
   public ResponseEntity<String> handleFileNotFoundException(FileNotFoundException exception) {
     return new ResponseEntity<>(exception.getMessage(), HttpStatus.NOT_FOUND);
   }
+
+  @ExceptionHandler(InvalidFileTypeException.class)
+  public ResponseEntity<String> handleInvalidFileTypeException(InvalidFileTypeException exception) {
+    return new ResponseEntity<>(exception.getMessage(), HttpStatus.NOT_ACCEPTABLE);
+  }
 }
