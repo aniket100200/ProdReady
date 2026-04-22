@@ -29,6 +29,8 @@ public class SecurityConfig {
                     .permitAll()
                     .requestMatchers("/login")
                     .permitAll()
+                    .requestMatchers("/car/**")
+                    .permitAll()
                     .requestMatchers(
                         "/", "/index.html", "/static/**", "/css/**", "/js/**", "/templates/**")
                     .permitAll()

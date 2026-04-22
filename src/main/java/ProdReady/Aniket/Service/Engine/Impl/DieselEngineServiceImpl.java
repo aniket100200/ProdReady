@@ -1,16 +1,18 @@
 package ProdReady.Aniket.Service.Engine.Impl;
 
 import ProdReady.Aniket.Service.Engine.Engine;
+import ProdReady.Aniket.Service.Engine.qualifyers.EngineQualifiers;
 import org.springframework.stereotype.Component;
 
-@Component("petrolEngine")
-public class PetrolEngine implements Engine {
+@Component
+@EngineQualifiers.DieselEngine
+public class DieselEngineServiceImpl implements Engine {
 
   @Override
   public void start() {}
 
   @Override
   public String getType() {
-    return "Petrol";
+    return "Diesel";
   }
 }
