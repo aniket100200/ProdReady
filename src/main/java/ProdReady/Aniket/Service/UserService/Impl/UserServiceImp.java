@@ -4,27 +4,28 @@ import ProdReady.Aniket.Repository.UserRepository;
 import ProdReady.Aniket.Service.UserService.UserService;
 import ProdReady.Aniket.dtos.reqDtos.UserRequestDto;
 import ProdReady.Aniket.dtos.respDtos.UserResponseDto;
+import ProdReady.Aniket.events.producer.user.UserCreatedEvent;
 import ProdReady.Aniket.exceptions.UserNotFoundException;
 import ProdReady.Aniket.models.User;
 import ProdReady.Aniket.transformers.UserTransformer;
 import java.util.Optional;
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.RequiredArgsConstructor;
+import org.springframework.context.ApplicationEventPublisher;
 import org.springframework.stereotype.Service;
 
 @Service
+@RequiredArgsConstructor
 public class UserServiceImp implements UserService {
 
   private final UserRepository userRepository;
-
-  @Autowired
-  public UserServiceImp(UserRepository userRepository) {
-    this.userRepository = userRepository;
-  }
+  private final ApplicationEventPublisher publisher;
 
   @Override
   public UserResponseDto create(UserRequestDto requestDto) {
     User user = UserTransformer.userFromUserRequestDto(requestDto);
     user = saveOrUpdate(user);
+
+    publisher.publishEvent(new UserCreatedEvent(this, requestDto.email()));
     return UserTransformer.userResponseDtoFromUser(user);
   }
 
